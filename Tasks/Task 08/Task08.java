@@ -4,10 +4,10 @@ public class Task08 {
         int x;
         for (int i = 0; i <array.length ; i++) {
             for (int j = 0; j <array.length ; j++) {
-                if(array[j]>array[i]){
-              x = array [j];
-              array[j]=array[i];
-              array[i]=x;
+                if(array[j] > array[i]){
+                    x = array [j];
+                    array[j] = array[i];
+                    array[i] = x;
                 }
             }
         }
