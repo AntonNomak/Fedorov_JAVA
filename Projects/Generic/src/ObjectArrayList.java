@@ -1,8 +1,8 @@
-public class ObjectsArrayList {
+public class ObjectArrayList {
     private Object elements[];
     private int count;
 
-    public ObjectsArrayList(){
+    public ObjectArrayList(){
         this.elements = new Object[10];
         this.count = 0;
     }
@@ -11,11 +11,9 @@ public class ObjectsArrayList {
         count++;
     }
     public Object get(int index){
-        if (index > -1 && index < this.elements.length){
+        if (index < count&& index >=0){
             return elements[index];
         }
-        else {
-            throw new IndexOutOfBoundsException();
-        }
+        throw  new IndexOutOfBoundsException();
     }
 }

@@ -18,7 +18,7 @@ public class ArrayList {
     }
     void  addToBegin2(int element){
         this.count = 0;
-        for (int i = MAX_SIZE ; i > 0 ; i--) {
+        for (int i = MAX_SIZE-1 ; i > 0 ; i--) {
             this.element[i] = this.element[i-1];
         }
         this.element[count] = element;

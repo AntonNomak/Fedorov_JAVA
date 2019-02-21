@@ -11,11 +11,9 @@ public class IntegerArrayList {
         count++;
     }
     public int get(int index){
-        if (index > -1 && index < this.elements.length){
+        if (index < count&& index >=0){
             return elements[index];
         }
-        else {
-            throw new IndexOutOfBoundsException();
-        }
+        throw  new IndexOutOfBoundsException();
     }
 }

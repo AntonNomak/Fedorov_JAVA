@@ -1,15 +1,9 @@
-/*
-Первая T  - параметр типа,то есть мы указали что список может работать с неизвестным типом T.Вторая Т  указывает что
-массив такого же типа как указанно в первой Т.Третья Т - так же указывает на тот тип который указан в первой Т.То что
-указали в первой Т попадет и во вторую и в третью
- */
-
-public class GenericArrayList<T>implements GenericList<T> {
-    private T elements[];//T - означает что неизвестно массив каких элементов будет создан,но известно что они будут
-    private int count;//ОДНОГО типа,а именно типа Т
+public class GenericArrayList<T> implements GenericList<T> {
+    private T elements[];
+    private int count;
 
     public GenericArrayList(){
-        this.elements = (T[])new Object[10];//этой конструкцией указываем что необходимо преобразовать массив к типу T
+        this.elements =(T[]) new Object[10];
         this.count = 0;
     }
     public void add(T value){
@@ -17,11 +11,9 @@ public class GenericArrayList<T>implements GenericList<T> {
         count++;
     }
     public T get(int index){
-        if (index > -1 && index < this.elements.length){
+        if (index < count&& index >=0){
             return elements[index];
         }
-        else {
-            throw new IndexOutOfBoundsException();
-        }
+        throw  new IndexOutOfBoundsException();
     }
 }

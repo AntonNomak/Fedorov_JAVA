@@ -1,4 +1,4 @@
-package extend.models;
+package extended.Models;
 
 public class Course {
 }
