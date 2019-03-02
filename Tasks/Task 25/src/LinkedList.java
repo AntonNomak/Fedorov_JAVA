@@ -1,12 +1,16 @@
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 public class LinkedList<T> implements List<T> {
     private Node top;
     private Node tail;
     private int count;
     private Node current;
 
-    private class Node {
-        private T element;
-        private Node next;
+    private static class Node<T> {
+        T element;
+        Node <T> next;
 
         public Node(T element) {
             this.element = element;
@@ -198,7 +202,7 @@ public class LinkedList<T> implements List<T> {
             }
         }
 
-    private class LinkedListIterator implements Iterator{
+    private class LinkedListIterator implements Iterator<T>{
         Node current;//поле
         public LinkedListIterator(){
             this.current = top;//переменная начинается с головы связного списка.
@@ -211,12 +215,25 @@ public class LinkedList<T> implements List<T> {
 
         @Override
         public T next() {//метод для получения следующего элемента
-            T element = current.element;
+            T element = (T) current.element;
             current = current.next;
             return element;
         }
     }
-    public Iterator iterator(){
-        return new LinkedListIterator();
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
     }
 }

@@ -1,3 +1,7 @@
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 public class ArrayList<T>implements List<T> {
 
     final int MAX_SIZE = 10;
@@ -115,7 +119,43 @@ public ArrayList(){
     public void print() {
         this.current = MAX_SIZE;
         for (int i = 0; i < current; i++) {
-            System.out.println(this.element[i]);
+            if(this.element[i] != null){
+                System.out.println(this.element[i]);
+            }
         }
+    }
+    private class ArrayListIterator implements Iterator<T>{
+
+    private int currentIndex;
+
+    public ArrayListIterator(){
+        this.currentIndex = 0;
+    }
+
+        @Override
+        public boolean hasNext() {
+            return current < count;
+        }
+
+        @Override
+        public T next() {
+            currentIndex++;//увеличили currentIndex на +1(например с 0 до 1)
+            return element[currentIndex-1];//вернули предыдущий,в данном случае 0
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayListIterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
     }
 }

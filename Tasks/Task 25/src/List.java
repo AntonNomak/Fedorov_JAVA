@@ -1,4 +1,4 @@
-public interface List<V> {
+public interface List<V>extends Iterable<V> {
     void add(V element);
     void addToBegin(V element);
     void addToEnd(V element);
